@@ -6,6 +6,11 @@ from .forms import ItemForm
 import json
 import os
 
+# Trial
+from django.http import HttpResponse
+
+def homepage(*args, **kwargs):
+    return HttpResponse("<h1>Hello World!</h1>")
 
 # Create your views here.
 DATA_FILE = 'data/distribution_book.json'
