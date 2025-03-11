@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribution Book</title>
+</head>
+<body>
+    <h1>Distribution Book</h1>
+    <a href="{% url 'add_item' %}">Add Item</a>
+    <a href="{% url 'logout' %}">Logout</a>
+    <h2>Items</h2>
+    <ul>
+        {% for item in items %}
+        <li>
+            {{ item.name }} ({{ item.quantity }})
+            <a href="{% url 'update_item' forloop.counter0 %}">Edit</a>
+            <a href="{% url 'delete_item' forloop.counter0 %}">Delete</a>
+        </li>
+        {% empty %}
+        <li>
+            No items available.
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
